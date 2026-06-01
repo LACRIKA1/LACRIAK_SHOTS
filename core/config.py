@@ -2,13 +2,14 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 
-APP_ROOT = Path(__file__).resolve().parents[1]
+APP_ROOT = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else Path(__file__).resolve().parents[1]
 DATA_DIR = APP_ROOT / "data"
 CAPTURE_DIR = APP_ROOT / "captures"
 SETTINGS_FILE = DATA_DIR / "settings.json"
@@ -154,4 +155,3 @@ def unique_capture_path(
             return candidate
 
     return base.with_name(f"{base.stem}_{datetime.now().strftime('%f')}{base.suffix}")
-
