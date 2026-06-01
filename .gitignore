@@ -7,3 +7,21 @@ build/
 *.spec
 .idea/
 .vscode/
+
+# Runtime state and user captures
+captures/
+data/*.json
+
+# Diploma materials and local document references
+diploma_assets/
+diploma_output/
+reference_*.docx
+
+# Local document-generation helpers
+scripts/generate_diploma_assets.py
+scripts/generate_diploma_doc.py
+scripts/generate_defense_materials.py
+
+# Temporary office profiles and lock files
+lo_profile*/
+~$*
